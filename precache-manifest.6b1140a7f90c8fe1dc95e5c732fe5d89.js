@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2e0b246c8132239f4539ef40ce9b055b",
+    "revision": "ba7418ca8d4174a82f3ce9795174924a",
     "url": "/ShopAppDragAndDrop/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ShopAppDragAndDrop/static/css/2.104bd446.chunk.css"
   },
   {
-    "revision": "41c4197fd0c75c592d5f",
+    "revision": "080d7055b39c93b74d63",
     "url": "/ShopAppDragAndDrop/static/css/main.fb9d4944.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ShopAppDragAndDrop/static/js/2.50dacc3f.chunk.js"
   },
   {
-    "revision": "41c4197fd0c75c592d5f",
-    "url": "/ShopAppDragAndDrop/static/js/main.c9197107.chunk.js"
+    "revision": "080d7055b39c93b74d63",
+    "url": "/ShopAppDragAndDrop/static/js/main.7d5ed6ba.chunk.js"
   },
   {
     "revision": "895bf575026e1ceb33cb",
