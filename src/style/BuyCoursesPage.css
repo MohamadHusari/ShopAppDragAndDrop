@@ -1,0 +1,79 @@
+/* Header Component */
+
+nav span.badge {
+    right: -3px;
+}
+
+/* Header Component */
+
+/*----------------------------------------------------*/
+
+/* BuyCoursesPage Component */
+
+/*Main is div contains Courses and Cart category */
+#main {
+    min-height: calc(100vh - 150px);
+}
+
+/* BuyCoursesPage Component */
+
+/*----------------------------------------------------*/
+
+/* Cart Component */
+#cart p:last-of-type {
+    font-weight: 700;
+    border-top: 1px solid #000;
+    padding-bottom: 0 !important;
+}
+
+#cart ul {
+    min-height: 220px;
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media (max-width: 575.98px) {
+    #cart ul {
+        max-height: 300px;
+    }
+}
+/* Cart Component */
+
+/*----------------------------------------------------*/
+
+/* Course Component */
+
+.course-card .card-price {
+    font-size: 1.5rem;
+}
+
+.card-price small {
+    font-size: 1rem;
+}
+
+.course-card button {
+    opacity: 0;
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+
+.course-card button.btn-link {
+    opacity: 1;
+}
+
+.btn.focus, .btn:focus {
+    box-shadow: none !important;
+
+}
+
+button.show {
+    opacity: 1;
+}
+
+/* Course Component */
+
+/*----------------------------------------------------*/
