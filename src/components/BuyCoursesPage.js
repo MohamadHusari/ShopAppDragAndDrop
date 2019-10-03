@@ -192,12 +192,15 @@ class BuyCoursesPage extends Component {
             this.state.filtered,
             this.state.cart,
             {index: index, droppableId: "droppable1"},
-            {droppableId: "droppable2", index: this.state.cart.length + 1}
+            {droppableId: "droppable2", index: this.state.cart.length}
         );
         this.setState({
             filtered: result.droppable1 ? result.droppable1 : [],
             cart: result.droppable2 ? result.droppable2 : []
-        }, () => this.securels.set('cart', this.state.cart));
+        }, () => {
+            this.securels.set('cart', this.state.cart);
+        });
+
     };
 
     /**
@@ -205,17 +208,20 @@ class BuyCoursesPage extends Component {
      * @param index - index inside cart droppable2
      * @description - Remove the course from the cart list by course id and update the cart array in object state and save it in localstorage under ket cart
      */
-    removeFromCart = (index) => {
+    removeFromCart = async (index) => {
         const result = this.move(
             this.state.cart,
             this.state.filtered,
             {index: index, droppableId: "droppable2"},
-            {index: this.state.filtered.length - 1, droppableId: "droppable1"}
+            {index: this.state.filtered.length, droppableId: "droppable1"}
         );
         this.setState({
             filtered: result.droppable1 ? result.droppable1 : [],
             cart: result.droppable2 ? result.droppable2 : []
+        },()=>{
+            this.securels.set('cart', this.state.cart);
         });
+
     };
 
     /**
@@ -223,7 +229,7 @@ class BuyCoursesPage extends Component {
      * @param value - get target value of the search input field
      * @description - filter the courses data by checking if course name includes search bar value (that write) and save the last array in filtered in state object
      */
-    searchCourses = async ({target: {value}}) => {
+    searchCourses = ({target: {value}}) => {
         // Variable to hold the original version of the list
         let currentList = [];
         // Variable to hold the filtered list before putting into state
@@ -252,7 +258,7 @@ class BuyCoursesPage extends Component {
             newList = differenceBy(this.state.courses,this.state.cart, 'id');
         }
         // Set the filtered state based on what our rules added to newList
-        await this.setState({
+        this.setState({
             filtered: newList
         });
     };
@@ -304,7 +310,8 @@ class BuyCoursesPage extends Component {
             if (source.droppableId === 'droppable1') {
                 this.addToCart(source.index);
             } else {
-                this.removeFromCart(destination.index);
+                this.removeFromCart(source.index);
+
             }
         }
     };
@@ -335,8 +342,7 @@ class BuyCoursesPage extends Component {
                                             <div className="col-12">
                                                 <Droppable droppableId="droppable1">
                                                     {provided => (
-                                                        <div {...provided.droppableProps} ref={provided.innerRef}
-                                                             className="row">
+                                                        <div {...provided.droppableProps} ref={provided.innerRef} className="row">
                                                             {this.sorted().slice((currentPage * 10) - 10, (currentPage * 10 > filteredLength) ? filteredLength : currentPage * 10).map(this.eachCourse)}
                                                             {provided.placeholder}
                                                         </div>
